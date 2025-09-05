@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইস্কেতওয়ার প্রজেক্ট</title>
+    <!-- Ad script added to head -->
+    <script src="https://fpyf8.com/88/tag.min.js" data-zone="166143" async data-cfasync="false"></script>
+    <style>
+        body {
+            font-family: 'SolaimanLipi', 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #3498db;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+			pointer-events: auto;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn:disabled, .btn.disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+			pointer-events: none;
+        }
+
+        .download-btn {
+            background-color: #27ae60;
+        }
+
+        .download-btn:hover:not(:disabled) {
+            background-color: #219a52;
+        }
+
+        .app-store-btn {
+            background-color: #e67e22;
+        }
+
+        .app-store-btn:hover {
+            background-color: #d35400;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+		
+		.counter {
+			font-size: 1.1rem;
+			color: #2c3e50;
+			font-weight: bold;
+			margin-top: 15px;
+			padding: 10px;
+			background-color: #ecf0f1;
+			border-radius: 5px;
+		}
+		
+		.warning {
+			color: #e74c3c;
+			font-weight: bold;
+			margin-top: 10px;
+		}
+		
+		.success {
+			color: #27ae60;
+			font-weight: bold;
+			margin-top: 10px;
+		}
+		
+		.timer {
+			font-size: 1rem;
+			color: #e67e22;
+			font-weight: bold;
+			margin-top: 5px;
+		}
+		
+		.ad-link-info {
+			font-size: 0.9rem;
+			color: #3498db;
+			margin-top: 5px;
+			font-style: italic;
+		}
+		
+		/* Style for the main page ad timer */
+		#mainPageTimer {
+			margin-top: 20px;
+			padding: 15px;
+			background-color: #e8f4f8;
+			border-radius: 10px;
+			border: 1px solid #3498db;
+		}
+		
+		#mainPageTimer h3 {
+			margin-top: 0;
+			color: #2c3e50;
+		}
+		
+		/* Hidden ad container for triggering ad script interaction */
+		#adContainer {
+			position: fixed;
+			top: -1000px;
+			left: -1000px;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			z-index: -1;
+		}
+		
+		/* Ad instruction text style */
+		#adInstruction {
+			font-size: 1.3rem;
+			color: #e74c3c;
+			font-weight: bold;
+			margin: 30px 0;
+			padding: 20px;
+			background-color: #fff3cd;
+			border: 2px dashed #ffc107;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+		
+		#adInstruction:hover {
+			background-color: #ffeaa7;
+		}
+		
+		/* Click counter display */
+		#clickCounter {
+			font-size: 1.1rem;
+			color: #2c3e50;
+			font-weight: bold;
+			margin: 10px 0;
+		}
+    </style>
+</head>
+<body id="landingPageBody">
+    <div class="container">
+        <h1>সকল ধরনের ইস্কেতওয়ার প্রজেক্ট এখানে পাবেন</h1>
+        <p>যেমন লুডুর টুর্নামেন্ট অ্যাপস সকল ফাইল পাবেন</p>
+        
+        <!-- App Store Button -->
+        <a href="https://play.google.com/store/apps" class="btn app-store-btn" target="_blank" rel="noopener noreferrer">
+            অ্যাপ স্টোরে যান
+        </a>
+
+		<!-- Instructions -->
+		<p id="instructions" class="note">
+		    <strong>লাইফ স্টোরে যেতে আপনাকে ২০ টি সম্পূর্ণ অ্যাড দিতে হবে। ডাউনলোড ক্লিক করে ১৫ সেকেন্ড করে অপেক্ষা করতে হবে।</strong>
+		</p>
+		
+		<!-- Ad Instruction Text (Clickable area) -->
+		<div id="adInstruction">
+			এটা এড করুন
+		</div>
+		
+		<!-- Click counter display -->
+		<div id="clickCounter">ক্লিক করা হয়েছে: 0/3</div>
+		
+		<!-- Timer Display for main page ad -->
+		<div id="mainPageTimerDisplay" class="timer" style="display:none;"></div>
+		<div id="mainPageStatusMessage"></div>
+		
+        <!-- Download Button with Main Logic -->
+        <button id="downloadButton" class="btn download-btn" onclick="handleDownloadButtonClick()">
+            ডাউনলোড লিংকে ক্লিক করুন
+        </button>
+		
+		<!-- Timer Display for rotating ads -->
+		<div id="timerDisplay" class="timer" style="display:none;"></div>
+		
+		<!-- Ad Link Info Display -->
+		<div id="adLinkInfo" class="ad-link-info" style="display:none;"></div>
+		
+		<!-- Status Messages for rotating ads -->
+		<div id="statusMessage"></div>
+		
+		<!-- Counter Display -->
+		<div id="counterDisplay" class="counter"></div>
+		
+		<!-- Cycle Info -->
+		<p class="note">প্রথম ২০ বার ক্লিক করলে ডিরেক্ট লিংকটি ওপেন হবে। ২১তম ক্লিকে অন্য একটি লিংক ওপেন হবে। সেই লিংক বন্ধ করে ফিরে আসলে আবার ২০ বার অ্যাড দেখতে হবে।</p>
+		
+		<!-- Hidden container to potentially trigger ad script interaction -->
+		<div id="adContainer"></div>
+    </div>
+
+    <script>
+        const adLinks = [
+            "https://otieu.com/4/9678873",
+            "https://otieu.com/4/9292136",
+            "https://otieu.com/4/9820581"
+        ];
+        const specialRedirectLink = "https://web.sketchub.in/search?q=Task%20app";
+        const adDuration = 15000; // 15 seconds in milliseconds
+        const linkChangeInterval = 10000; // 10 seconds in milliseconds
+        const requiredAds = 20;
+		const requiredClicks = 3; // Number of clicks required before starting timer
+
+        // DOM Elements
+        const downloadButton = document.getElementById('downloadButton');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const adLinkInfo = document.getElementById('adLinkInfo');
+        const statusMessage = document.getElementById('statusMessage');
+        const counterDisplay = document.getElementById('counterDisplay');
+		const landingPageBody = document.getElementById('landingPageBody');
+		
+		// Main Page Timer Elements
+		const mainPageTimerDisplay = document.getElementById('mainPageTimerDisplay');
+		const mainPageStatusMessage = document.getElementById('mainPageStatusMessage');
+		const adInstruction = document.getElementById('adInstruction');
+		const clickCounter = document.getElementById('clickCounter');
+
+        // Get data from localStorage or initialize
+		let adAttemptLog = JSON.parse(localStorage.getItem('adAttemptLogLC16')) || [];
+		let completedAds = adAttemptLog.filter(attempt => attempt.status === 'completed').length;
+        let isWaitingForSpecialLinkClose = localStorage.getItem('isWaitingForSpecialLinkCloseLC16') === 'true';
+		let adWindows = []; // To hold references to the opened ad windows
+		let currentAdWindowIndex = 0;
+		
+		// Main page click state
+		let mainPageClickCount = 0;
+		let isMainPageTimerRunning = false;
+		let mainPageTimerInterval = null;
+
+        // Update the counter display and button state on page load
+        updateCounterAndButtonState();
+
+		// Check if we were waiting for the special link to close on page load
+		if (isWaitingForSpecialLinkClose) {
+			showStatusMessage('বিশেষ লিংকের জন্য অপেক্ষা চলছিল। লিংক বন্ধ হয়েছে কিনা তা যাচাই করা হচ্ছে...', 'warning');
+		}
+		
+		// Main Page Ad Logic - Click on the instruction text
+		const handleClickForAd = function() {
+			if (isMainPageTimerRunning) return;
+			
+			if (completedAds >= requiredAds) {
+				// If 20 ads are completed, open special link
+				openSpecialLink();
+				return;
+			}
+			
+			// Increment click count
+			mainPageClickCount++;
+			clickCounter.innerText = `ক্লিক করা হয়েছে: ${mainPageClickCount}/${requiredClicks}`;
+			
+			// Check if required clicks are reached
+			if (mainPageClickCount >= requiredClicks) {
+				// Trigger ad script interaction by simulating clicks
+				try {
+					// Simulate a click on the body
+					document.body.click();
+					// Or try clicking the ad container
+					document.getElementById('adContainer').click();
+				} catch(e) {
+					console.log("Could not simulate click for ad script");
+				}
+				
+				// Start the timer
+				startMainPageTimer();
+			}
+		};
+		
+		function startMainPageTimer() {
+			isMainPageTimerRunning = true;
+			mainPageTimerDisplay.style.display = 'block';
+			showStatusMessage('১৫ সেকেন্ড অপেক্ষা করুন...', 'warning', 'mainPageStatusMessage');
+			
+			// Generate a unique attempt ID for this main page ad view attempt
+			const mainPageAttemptId = 'mainpage_' + Date.now().toString() + Math.random().toString(36).substr(2, 5);
+			
+			// Log this attempt as 'started'
+			adAttemptLog.push({ id: mainPageAttemptId, status: 'started', timestamp: new Date().toISOString(), type: 'main_page' });
+			saveAdAttemptLog();
+			
+			let timeLeft = adDuration / 1000;
+			mainPageTimerDisplay.innerText = `অপেক্ষার সময়: ${timeLeft} সেকেন্ড`;
+
+			mainPageTimerInterval = setInterval(() => {
+				timeLeft--;
+				mainPageTimerDisplay.innerText = `অপেক্ষার সময়: ${timeLeft} সেকেন্ড`;
+				
+				if (timeLeft <= 0) {
+					clearInterval(mainPageTimerInterval);
+					isMainPageTimerRunning = false;
+					mainPageTimerDisplay.style.display = 'none';
+					
+					// Timer finished, main page ad attempt is considered complete
+					const attemptIndex = adAttemptLog.findIndex(a => a.id === mainPageAttemptId);
+					if (attemptIndex !== -1) {
+						adAttemptLog[attemptIndex].status = 'completed';
+						adAttemptLog[attemptIndex].completionTime = new Date().toISOString();
+						saveAdAttemptLog();
+						completedAds = adAttemptLog.filter(a => a.status === 'completed').length;
+						localStorage.setItem('completedAdsLC16', completedAds);
+					}
+					showStatusMessage('পেজ অ্যাড সম্পূর্ণ হয়েছে! ধন্যবাদ।', 'success', 'mainPageStatusMessage');
+					updateCounterAndButtonState();
+					
+					// Reset click count for next attempt
+					mainPageClickCount = 0;
+					clickCounter.innerText = `ক্লিক করা হয়েছে: ${mainPageClickCount}/${requiredClicks}`;
+				}
+			}, 1000);
+		}
+		
+		// Add event listeners to the instruction text
+		adInstruction.addEventListener('click', handleClickForAd);
+
+        function handleDownloadButtonClick() {
+			// If we are waiting for the special link to close, don't do anything on button click
+			if (isWaitingForSpecialLinkClose) {
+				showStatusMessage('অপেক্ষা চলছে... বিশেষ লিংক বন্ধ করে ফিরে আসুন।', 'warning');
+				return;
+			}
+			
+			// Check if user has completed the required ads
+			if (completedAds >= requiredAds) {
+				// User has completed 20 ads, this click is for the special link
+				openSpecialLink();
+			} else {
+				// User is still collecting ads
+				openRotatingAdWindows();
+			}
+        }
+		
+		function openRotatingAdWindows() {
+			// Generate a unique attempt ID for this ad view attempt
+			const attemptId = 'rotating_' + Date.now().toString() + Math.random().toString(36).substr(2, 5);
+			
+			// Log this attempt as 'started'
+			adAttemptLog.push({ id: attemptId, status: 'started', timestamp: new Date().toISOString(), type: 'rotating' });
+			saveAdAttemptLog();
+			
+			// Clear any existing ad windows
+			adWindows.forEach(w => { try { w.close(); } catch(e) {} });
+			adWindows = [];
+			currentAdWindowIndex = 0;
+			
+			// Immediately open the first ad link in a new window/tab
+			let firstAdWindow = window.open(adLinks[0], '_blank');
+			if (!firstAdWindow) {
+				showStatusMessage('পপ-আপ ব্লকার সক্রিয়! অ্যাড উইন্ডো খুলতে পপ-আপ ব্লকার নিষ্ক্রিয় করুন।', 'warning');
+				// Update the log to reflect failure to open
+				const attemptIndex = adAttemptLog.findIndex(a => a.id === attemptId);
+				if (attemptIndex !== -1) {
+					adAttemptLog[attemptIndex].status = 'failed_to_open';
+					saveAdAttemptLog();
+				}
+				return;
+			}
+			adWindows.push(firstAdWindow);
+			
+			// Disable the button immediately after opening the link
+			downloadButton.disabled = true;
+			downloadButton.classList.add('disabled');
+			showStatusMessage('অ্যাড উইন্ডো ওপেন হয়েছে... 15 সেকেন্ড অপেক্ষা করুন...', 'warning');
+
+            // Show timer display
+            timerDisplay.style.display = 'block';
+			// Show ad link info display
+			adLinkInfo.style.display = 'block';
+			adLinkInfo.innerText = `বর্তমান লিংক: ${adLinks[0]}`;
+            
+            let timeLeft = adDuration / 1000;
+            timerDisplay.innerText = `অপেক্ষার সময়: ${timeLeft} সেকেন্ড`;
+
+			// Set up the link rotation
+			let linkChangeTimeLeft = linkChangeInterval / 1000;
+			const linkRotationInterval = setInterval(() => {
+				linkChangeTimeLeft--;
+				if (linkChangeTimeLeft <= 0) {
+					// Time to change the link
+					currentAdWindowIndex = (currentAdWindowIndex + 1) % adLinks.length;
+					const nextLink = adLinks[currentAdWindowIndex];
+					
+					// Close the previous window and open the new one
+					if (adWindows.length > 0) {
+						try {
+							adWindows[adWindows.length - 1].close();
+						} catch(e) {
+							console.log("Could not close previous ad window");
+						}
+					}
+					
+					let newAdWindow = window.open(nextLink, '_blank');
+					if (newAdWindow) {
+						// Add the new window to our list
+						adWindows.push(newAdWindow);
+						// Update the displayed link info
+						adLinkInfo.innerText = `বর্তমান লিংক: ${nextLink}`;
+					} else {
+						showStatusMessage('পপ-আপ ব্লকার সক্রিয়! অ্যাড উইন্ডো খুলতে পপ-আপ ব্লকার নিষ্ক্রিয় করুন।', 'warning');
+						// If we fail to open a new window, stop the rotation
+						clearInterval(linkRotationInterval);
+						// Also stop the main timer if it's still running
+						if (timeLeft > 0) {
+							const attemptIndex = adAttemptLog.findIndex(a => a.id === attemptId);
+							if (attemptIndex !== -1) {
+								adAttemptLog[attemptIndex].status = 'failed_to_open';
+								saveAdAttemptLog();
+							}
+							finishAdView(false, attemptId);
+						}
+						return;
+					}
+					
+					// Reset the link change timer
+					linkChangeTimeLeft = linkChangeInterval / 1000;
+				}
+			}, 1000);
+
+            const timerInterval = setInterval(() => {
+                timeLeft--;
+                timerDisplay.innerText = `অপেক্ষার সময়: ${timeLeft} সেকেন্ড`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+					clearInterval(linkRotationInterval);
+					// Close all ad windows
+					adWindows.forEach(w => { try { w.close(); } catch(e) {} });
+					adWindows = [];
+					// Timer finished, ad attempt is considered complete
+					const attemptIndex = adAttemptLog.findIndex(a => a.id === attemptId);
+					if (attemptIndex !== -1) {
+						adAttemptLog[attemptIndex].status = 'completed';
+						adAttemptLog[attemptIndex].completionTime = new Date().toISOString();
+						saveAdAttemptLog();
+						completedAds = adAttemptLog.filter(a => a.status === 'completed').length;
+						localStorage.setItem('completedAdsLC16', completedAds);
+					}
+                    finishAdView(true, attemptId); 
+                }
+            }, 1000);
+
+            // Polling method to detect if any window is closed *prematurely* (before timer ends)
+			const checkAdWindowsClosed = () => {
+				// Check if all windows are closed or if the last one is closed
+				const allClosed = adWindows.length === 0 || adWindows.every(w => w.closed);
+				const lastClosed = adWindows.length > 0 && adWindows[adWindows.length - 1].closed;
+				
+				if (allClosed || lastClosed) {
+					clearInterval(timerInterval);
+					clearInterval(linkRotationInterval);
+					// Close any remaining windows
+					adWindows.forEach(w => { try { w.close(); } catch(e) {} });
+					adWindows = [];
+					if (timeLeft > 0) {
+						// Window was closed before the timer finished
+						const attemptIndex = adAttemptLog.findIndex(a => a.id === attemptId);
+						if (attemptIndex !== -1) {
+							if (adAttemptLog[attemptIndex].status === 'started') {
+								adAttemptLog[attemptIndex].status = 'incomplete';
+								adAttemptLog[attemptIndex].closeTime = new Date().toISOString();
+								saveAdAttemptLog();
+							}
+						}
+						finishAdView(false, attemptId);
+					}
+				}
+			};
+			const focusInterval = setInterval(checkAdWindowsClosed, 1000);
+			
+			// Cleanup intervals when the process finishes or page unloads
+			const cleanup = () => {
+				clearInterval(focusInterval);
+				clearInterval(linkRotationInterval);
+				// Close any remaining windows
+				adWindows.forEach(w => { try { w.close(); } catch(e) {} });
+				adWindows = [];
+				window.removeEventListener('beforeunload', cleanup);
+			};
+			window.addEventListener('beforeunload', cleanup);
+        }
+		
+		function openSpecialLink() {
+			// Disable the download button
+			downloadButton.disabled = true;
+			downloadButton.classList.add('disabled');
+			
+			// Set the waiting flag in localStorage
+			localStorage.setItem('isWaitingForSpecialLinkCloseLC16', 'true');
+			isWaitingForSpecialLinkClose = true;
+			
+			// Open the special link
+			let specialWindow = window.open(specialRedirectLink, '_blank');
+			
+			if (!specialWindow) {
+				showStatusMessage('পপ-আপ ব্লকার সক্রিয়! বিশেষ লিংক খুলতে পপ-আপ ব্লকার নিষ্ক্রিয় করুন।', 'warning');
+				localStorage.setItem('isWaitingForSpecialLinkCloseLC16', 'false');
+				isWaitingForSpecialLinkClose = false;
+				downloadButton.disabled = false;
+				downloadButton.classList.remove('disabled');
+				return;
+			}
+			
+			showStatusMessage('বিশেষ লিংক ওপেন হচ্ছে... লিংক বন্ধ করে ফিরে আসুন।', 'success');
+			
+			// Polling method to check if special window is closed
+			const checkSpecialWindowClosed = () => {
+				if (specialWindow.closed) {
+					// Special window is closed, reset the state
+					localStorage.setItem('isWaitingForSpecialLinkCloseLC16', 'false');
+					isWaitingForSpecialLinkClose = false;
+					
+					// IMPORTANT: Reset the ad counter and log for the next cycle
+					completedAds = 0;
+					adAttemptLog = [];
+					localStorage.setItem('completedAdsLC16', completedAds);
+					saveAdAttemptLog();
+					
+					// Update UI
+					showStatusMessage('বিশেষ লিংক বন্ধ হয়েছে। আবার ২০ টি অ্যাড দেখতে হবে।', 'success');
+					updateCounterAndButtonState();
+					
+					// Re-enable button after a delay
+					setTimeout(() => {
+						downloadButton.disabled = false;
+						downloadButton.classList.remove('disabled');
+					}, 2000);
+					
+					// Clean up interval
+					clearInterval(specialFocusInterval);
+				}
+			};
+			const specialFocusInterval = setInterval(checkSpecialWindowClosed, 1000);
+			
+			// Cleanup on page unload
+			const specialCleanup = () => {
+				clearInterval(specialFocusInterval);
+				window.removeEventListener('beforeunload', specialCleanup);
+			};
+			window.addEventListener('beforeunload', specialCleanup);
+		}
+
+        function finishAdView(success, attemptId) {
+            // Hide timer display
+            timerDisplay.style.display = 'none';
+			// Hide ad link info display
+			adLinkInfo.style.display = 'none';
+            
+            if (success) {
+				completedAds = adAttemptLog.filter(a => a.status === 'completed').length;
+				localStorage.setItem('completedAdsLC16', completedAds);
+                showStatusMessage('অ্যাড সম্পূর্ণ হয়েছে! ধন্যবাদ।', 'success');
+            } else {
+                showStatusMessage('অ্যাড দেখা সম্পন্ন হয়নি!', 'warning');
+            }
+			
+			updateCounterAndButtonState();
+            
+            // Re-enable the button after a short delay for user feedback
+            setTimeout(() => {
+                if (!isWaitingForSpecialLinkClose) {
+					downloadButton.disabled = false;
+					downloadButton.classList.remove('disabled');
+				}
+            }, 2000);
+        }
+
+		const saveAdAttemptLog = () => {
+			localStorage.setItem('adAttemptLogLC16', JSON.stringify(adAttemptLog));
+		};
+
+        function updateCounterAndButtonState() {
+			if (isWaitingForSpecialLinkClose) {
+				counterDisplay.innerText = `অপেক্ষা চলছে... বিশেষ লিংক বন্ধ করে ফিরে আসুন।`;
+				downloadButton.disabled = true;
+				downloadButton.classList.add('disabled');
+				downloadButton.innerText = "অপেক্ষা চলছে...";
+				return;
+			}
+			
+			completedAds = adAttemptLog.filter(a => a.status === 'completed').length;
+			localStorage.setItem('completedAdsLC16', completedAds);
+			
+			if (completedAds < requiredAds) {
+				counterDisplay.innerText = `সম্পূর্ণ অ্যাড: ${completedAds} / ${requiredAds}`;
+				downloadButton.innerText = "ডাউনলোড লিংকে ক্লিক করুন";
+			} else {
+				// User has completed 20 ads
+				counterDisplay.innerText = `অভিনন্দন! ২০টি অ্যাড সম্পূর্ণ। পরবর্তী ক্লিকে বিশেষ লিংক ওপেন হবে।`;
+				downloadButton.innerText = "বিশেষ লিংক ওপেন করুন";
+			}
+			
+			if (!downloadButton.disabled) {
+				downloadButton.disabled = false;
+				downloadButton.classList.remove('disabled');
+			}
+        }
+		
+		// Helper function to show status messages
+		function showStatusMessage(message, type, elementId = 'statusMessage') {
+			const element = document.getElementById(elementId);
+			if (element) {
+				element.innerHTML = `<div class="${type}">${message}</div>`;
+			}
+		}
+    </script>
+</body>
+</html>
